@@ -5,20 +5,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-public class Department {
+public class PurachaseOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private String customerName;
+    private String city;
+    private Double amount;
 
-   // @JsonManagedReference
-    @OneToMany(mappedBy = "department")
-    private List<Employee> employeeList;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "purachaseOrder",cascade = CascadeType.ALL)
+    private Set<PoItems> poItemsSet;
 
 }

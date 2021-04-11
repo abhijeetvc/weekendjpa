@@ -9,16 +9,19 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-public class Employee {
+public class PoItems {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String city;
+    private String item;
+    private Integer qty;
+    private Double price;
 
-    //@JsonBackReference
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="dept_id")
-    private Department department;
-}
+    @JoinColumn(name="po_id")
+    private PurachaseOrder purachaseOrder;
 
+
+}
