@@ -16,6 +16,6 @@ public class Product {
     private Integer id;
     private String name;
 
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany(mappedBy = "products",cascade = CascadeType.ALL)
     private Set<Customer> customerSet;
 }

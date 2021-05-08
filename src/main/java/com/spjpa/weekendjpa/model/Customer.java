@@ -17,7 +17,7 @@ public class Customer {
     private String name;
     private String city;
 
-    @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "cust_prod",
             joinColumns = @JoinColumn(name = "cust_id",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "prod_id",referencedColumnName = "id"))

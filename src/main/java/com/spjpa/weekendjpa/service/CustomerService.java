@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
+//@Transactional
 @Service
 public class CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
 
-  //  @Transactional(rollbackFor = { Exception.class })
+    @Transactional(rollbackFor = { Exception.class })
     public void addCustomer(Customer customer){
         try{
             customerRepository.save(customer);
